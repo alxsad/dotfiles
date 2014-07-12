@@ -1,0 +1,39 @@
+set nocompatible
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Bundle 'gmarik/Vundle.vim'
+Bundle 'bling/vim-airline'
+call vundle#end()
+filetype plugin indent on
+filetype off
+syntax on
+set encoding=utf-8 nobomb
+set fileencodings=utf-8,cp1251
+set termencoding=utf-8
+set fileformat=unix
+set fileformats=unix
+set nobackup
+set noswapfile
+set backspace=indent,eol,start
+set winminheight=1
+set autoread
+set number
+set visualbell
+set laststatus=2
+set showcmd
+set autoindent
+set copyindent
+set smartindent
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set smarttab
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set background=dark
+set incsearch
+set hlsearch
+set showmatch
+set ignorecase
+set smartcase
+set gdefault
