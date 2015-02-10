@@ -42,7 +42,7 @@ set modifiable
 
 autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
-nmap <Leader>gd :GitGutterToggle<CR>
+map <C-g> :GitGutterToggle<CR>
 let g:airline#extensions#tabline#enabled=1
 
 syntax enable

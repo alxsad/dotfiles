@@ -3,4 +3,8 @@
 	url = git@github.com:robbyrussell/oh-my-zsh.git
 [submodule ".vim/bundle/Vundle.vim"]
 	path = .vim/bundle/Vundle.vim
-	url = git@github.com:gmarik/Vundle.vim.git
+    url = git@github.com:gmarik/Vundle.vim.git
+[submodule ".vim/bundle/vim-autoclose"]
+    path = .vim/bundle/vim-autoclose
+    url = git@github.com:Townk/vim-autoclose.git
+
