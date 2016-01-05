@@ -5,15 +5,15 @@
     ui = true
 [alias]
     lg = log --graph --color --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --
-    graph = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
     co = checkout
     ci = commit
     st = status
     br = branch
-    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     aa = add .
 [push]
     default = current
 [http]
     sslVerify = true
+[core]
+    editor = vim
 

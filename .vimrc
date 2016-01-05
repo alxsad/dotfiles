@@ -40,7 +40,6 @@ set smartcase
 set gdefault
 set modifiable
 
-autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 map <C-g> :GitGutterToggle<CR>
 let g:airline#extensions#tabline#enabled=1
