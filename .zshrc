@@ -10,4 +10,5 @@ alias vimconfig="vim ~/.vimrc"
 alias zshreload=". ~/.zshrc && echo 'reloaded'"
 alias zshconfig="vim ~/.zshrc"
 alias sshconfig="vim ~/.ssh/config"
+alias gitconfig="vim ~/.gitconfig"
 

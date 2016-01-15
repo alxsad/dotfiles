@@ -4,12 +4,22 @@
 [color]
     ui = true
 [alias]
-    lg = log --graph --color --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --
-    co = checkout
-    ci = commit
-    st = status
-    br = branch
-    aa = add .
+    lg  = log --graph --color --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --
+    co  = checkout
+    cob = checkout -b
+    ci  = commit
+    p   = push
+    f   = fetch -p
+    bd  = branch -d
+    bD  = branch -D
+    st  = status
+    br  = branch
+    aa  = add .
+    df  = diff --cached
+    sl  = stash list
+    sp  = stash pop
+    sc  = stash clear
+    ss  = stash
 [push]
     default = current
 [http]

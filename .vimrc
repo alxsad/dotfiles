@@ -7,6 +7,8 @@ Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/nerdcommenter'
 call vundle#end()
 filetype plugin indent on
 set encoding=utf-8 nobomb
