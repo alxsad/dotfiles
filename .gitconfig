@@ -1,6 +1,6 @@
 [user]
     name = Alex Davidovich
-	email = alex.davidovich@viber.com
+	email = alxsad@gmail.com
 [color]
     ui = true
 [alias]
@@ -8,13 +8,16 @@
     co  = checkout
     cob = checkout -b
     ci  = commit
+    cim = commit -m
     p   = push
+    pp  = push origin
     f   = fetch -p
     bd  = branch -d
     bD  = branch -D
     st  = status
     br  = branch
     aa  = add .
+    a   = add
     df  = diff --cached
     sl  = stash list
     sp  = stash pop

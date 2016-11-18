@@ -12,3 +12,5 @@ alias zshconfig="vim ~/.zshrc"
 alias sshconfig="vim ~/.ssh/config"
 alias gitconfig="vim ~/.gitconfig"
 
+export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+
