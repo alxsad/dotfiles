@@ -15,6 +15,7 @@
     bd  = branch -d
     bD  = branch -D
     st  = status
+    sts = status -sb
     br  = branch
     aa  = add .
     a   = add
@@ -23,6 +24,7 @@
     sp  = stash pop
     sc  = stash clear
     ss  = stash
+    v   = describe --tags
 [push]
     default = current
 [http]
