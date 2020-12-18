@@ -8,16 +8,24 @@ export EDITOR="vim"
 export GIT_EDITOR="vim"
 export HOMEBREW_NO_ANALYTICS=1
 
+# local zshrc
+if [[ -f $HOME/.zshrc.local ]]; then
+    source $HOME/.zshrc.local
+fi
+
 # configs
 alias vconf="vim ~/.vimrc"
 alias zrel=". ~/.zshrc && echo 'reloaded'"
 alias zconf="vim ~/.zshrc"
+alias zlconf="vim ~/.zshrc.local"
+alias gzconf="code ~/.zshrc"
+alias gzlconf="code ~/.zshrc.local"
 alias sconf="vim ~/.ssh/config"
 alias gconf="vim ~/.gitconfig"
 
 # network
-alias lip="ipconfig getifaddr en0"
-alias pip="curl ifconfig.me"
+alias myipl="ipconfig getifaddr en0"
+alias myipp="curl ifconfig.me"
 alias sshrm="ssh-keygen -R"
 alias dog="dog" # like a dig (dns client)
 alias gping="gping"
@@ -73,6 +81,12 @@ alias trash="trash" # move to trash
 alias gitk="gitk"
 alias shreder="shred -zv"
 alias hg="history | grep"
+alias hub="hub"
+alias gistf="GITHUB_TOKEN=$GITHUB_TOKEN_GISTS hub gist create --copy" # path to file
+alias gist="GITHUB_TOKEN=$GITHUB_TOKEN_GISTS hub gist create"
+alias zshup="omz update"
+alias zrebuild="rm -f ~/.zcompdump; compinit"
+alias search="ag" # https://github.com/ggreer/the_silver_searcher (ag text /path/to/folder)
 
 # variables
 export JAVA14="$(/usr/libexec/java_home -v 14)"
@@ -91,15 +105,15 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/e2fsprogs/bin:$PATH"
 export PATH="/usr/local/opt/e2fsprogs/sbin:$PATH"
 
-# local zshrc
-if [[ -f $HOME/.zshrc.local ]]; then
-    source $HOME/.zshrc.local
-fi
-
 function take {
     mkdir -p $1
     cd $1
 }
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+  autoload -Uz compinit && compinit
+fi
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/bitcomplete bit
