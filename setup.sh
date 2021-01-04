@@ -11,6 +11,7 @@ files=(
     .gitmodules
     .vimrc
     .zshrc
+    .zshrc.alias
 )
 
 echo "Creating symlinks..."
@@ -22,4 +23,3 @@ do
 done
 
 echo "Done!"
-
