@@ -40,6 +40,8 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/e2fsprogs/bin:$PATH"
 export PATH="/usr/local/opt/e2fsprogs/sbin:$PATH"
 
+export PATH="/usr/local/opt/terraform@0.13/bin:$PATH"
+
 function take {
     mkdir -p $1
     cd $1
