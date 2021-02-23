@@ -22,4 +22,6 @@ do
     ln -sf $DIR/$file $HOME/$file
 done
 
+ln -sf $DIR/starship.toml $HOME/.config/starship.toml
+
 echo "Done!"

@@ -78,4 +78,4 @@ alias l1="exa --tree --git -la -L 1"
 alias l2="exa --tree --git -la -L 2"
 alias l3="exa --tree --git -la -L 3"
 alias delta="get-operation.sh --dark --line-numbers --side-by-side"
-
+alias temp="watch -n 1 osx-cpu-temp"
