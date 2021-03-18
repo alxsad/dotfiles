@@ -1,3 +1,60 @@
+scan_timeout = 100
+
+format = """
+$directory\
+$shlvl\
+$kubernetes\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$ruby\
+$rust\
+$swift\
+$terraform\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$username\
+$hostname\
+$crystal\
+$custom\
+$cmd_duration\
+$line_break\
+$lua\
+$jobs\
+$battery\
+$time\
+$status\
+$character"""
+
 [character]
 success_symbol = "[➜](bold green)"
 
@@ -11,21 +68,32 @@ style = "bold yellow"
 
 [env_var]
 variable = "SHELL"
+style = "yellow bold dimmed"
+format = "with [$env_value]($style) "
 
 [memory_usage]
 disabled = false
 threshold = -1
-symbol = "🐏 "
+symbol = "🐏"
 style = "bold dimmed green"
+format='using $symbol [${ram}( ${swap})]($style) '
 
 [directory]
 truncation_length = 8
 truncation_symbol = "…/"
 truncate_to_repo = false
+format="[$path]($style)[$read_only]($read_only_style) "
+
+[username]
+style_user = "blue bold"
+style_root = "red bold"
+format = 'user [$user]($style)'
+disabled = false
+show_always = true
 
 [hostname]
 ssh_only = false
-format = "on [$hostname](bold red) "
+format = ' on [$hostname](bold red) '
 disabled = false
 
 [status]
@@ -35,16 +103,25 @@ format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
 map_symbol = true
 disabled = false
 
-[username]
-style_user = "white bold"
-style_root = "black bold"
-format = "user: [$user]($style) "
-disabled = false
-show_always = true
-
 [time]
 disabled = false
-format = '🕙[\[ $time \]]($style) '
-time_format = "%T"
-utc_time_offset = "-5"
-time_range = "10:00:00-14:00:00"
+format = '[\[ 🕙 $time \]]($style) '
+time_format = "%R"
+utc_time_offset = "local"
+
+[git_branch]
+format='on [$symbol$branch]($style) '
+
+[git_status]
+format='([$all_status$ahead_behind]($style)) '
+staged = '[++\($count\)](green)'
+
+[custom.private_ip]
+command = 'ipconfig getifaddr en0'
+when = "true"
+format = 'via \([$symbol($output)](green)'
+
+[custom.public_ip]
+command = 'curl ifconfig.me'
+when = "true"
+format = '/[$symbol($output)](green)\)'

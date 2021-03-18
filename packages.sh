@@ -8,6 +8,8 @@ packages=(
     vim
     ansible
     archey
+    neofetch
+    fortune
     arp-scan
     asciinema
     bat

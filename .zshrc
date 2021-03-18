@@ -2,7 +2,7 @@ ZSH_DISABLE_COMPFIX=true
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 DISABLE_AUTO_UPDATE="true"
-plugins=(git composer node npm vagrant symfony2 brew docker encode64 phing urltools ruby gem gradle history sudo)
+plugins=(git osx iterm2 composer node npm vagrant symfony2 brew docker encode64 urltools ruby gem gradle history sudo)
 source $ZSH/oh-my-zsh.sh
 export EDITOR="vim"
 export GIT_EDITOR="vim"
@@ -41,6 +41,8 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/e2fsprogs/bin:$PATH"
 export PATH="/usr/local/opt/e2fsprogs/sbin:$PATH"
 
+neofetch
+
 function take {
     mkdir -p $1
     cd $1
@@ -56,4 +58,8 @@ complete -o nospace -C /usr/local/bin/bitcomplete bit
 
 eval "$(starship init zsh)"
 
-inf
+# HSTR configuration - add this to ~/.zshrc
+alias hh=hstr                    # hh to be alias for hstr
+setopt histignorespace           # skip cmds w/ leading space from history
+export HSTR_CONFIG=hicolor       # get more colors
+bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
