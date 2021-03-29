@@ -2,7 +2,7 @@ ZSH_DISABLE_COMPFIX=true
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 DISABLE_AUTO_UPDATE="true"
-plugins=(git osx iterm2 composer node npm vagrant symfony2 brew docker encode64 urltools ruby gem gradle history sudo zsh-autosuggestions)
+plugins=(git osx iterm2 composer node npm vagrant symfony2 brew docker encode64 urltools ruby gem gradle history sudo zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 export EDITOR="vim"
 export GIT_EDITOR="vim"
