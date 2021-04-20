@@ -57,6 +57,9 @@ packages=(
     wget
     the_silver_searcher
     wifi-password
+    procs
+    fx
+    gitui
 )
 
 echo "Installing packages..."
