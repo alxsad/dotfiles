@@ -20,6 +20,7 @@ alias speed="speedtest-cli"
 alias scan="arp-scan -l"
 alias q="http"
 alias wifi-password="wifi-password"
+alias www="python -m SimpleHTTPServer 8000"
 
 # docker
 alias docker_start="open -a Docker"
@@ -85,3 +86,10 @@ alias procs="procs"
 alias fx="fx"
 alias gui="gitui"
 alias gdu="gdu"
+
+# passwords
+alias pass8="pwgen 8 1"
+alias pass16="pwgen 16 1"
+alias pass32="pwgen 32 1"
+alias pass="openssl rand -base64 16"
+
