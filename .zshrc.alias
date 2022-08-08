@@ -13,6 +13,7 @@ alias gconf="vim ~/.gitconfig"
 # network
 alias private_ip="ipconfig getifaddr en0"
 alias public_ip="curl ifconfig.me"
+alias ports="sudo lsof -i -P -n | grep LISTEN"
 alias sshrm="ssh-keygen -R"
 alias dog="dog" # like a dig (dns client)
 alias gping="gping"
@@ -21,6 +22,7 @@ alias scan="arp-scan -l"
 alias q="http"
 alias wifi-password="wifi-password"
 alias www="python -m SimpleHTTPServer 8000"
+alias sshed="sshed"
 
 # docker
 alias docker_start="open -a Docker"
@@ -86,6 +88,11 @@ alias procs="procs"
 alias fx="fx"
 alias gui="gitui"
 alias gdu="gdu"
+alias dlist="diskutil list"
+alias dunm="diskutil unmountDisk"
+alias broot="broot"
+alias cheat="cheat" # like tldr
+alias chromm='open -n -a Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security'
 
 # passwords
 alias pass8="pwgen 8 1"
