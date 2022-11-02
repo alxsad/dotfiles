@@ -2,11 +2,13 @@ ZSH_DISABLE_COMPFIX=true
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 DISABLE_AUTO_UPDATE="true"
-plugins=(git vi-mode osx iterm2 composer node npm yarn vagrant symfony2 brew docker encode64 urltools ruby gem gradle history sudo zsh-autosuggestions zsh-syntax-highlighting catimg colored-man-pages golang jsontools nmap postgres react-native zsh_reload)
+plugins=(git vi-mode osx iterm2 composer node npm yarn brew docker encode64 urltools history sudo zsh-autosuggestions zsh-syntax-highlighting catimg colored-man-pages golang jsontools nmap postgres zsh_reload)
 source $ZSH/oh-my-zsh.sh
 export EDITOR="vim"
 export GIT_EDITOR="vim"
 export HOMEBREW_NO_ANALYTICS=1
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # local zshrc
 if [[ -f $HOME/.zshrc.local ]]; then
@@ -48,15 +50,18 @@ function take {
     cd $1
 }
 
+function ntfy {
+    echo "$2" | http ntfy.sh/$1
+}
+
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-  autoload -Uz compinit && compinit
+  autoload -Uz compinit
+  compinit
 fi
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/bitcomplete bit
-
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 
 # HSTR configuration - add this to ~/.zshrc
 alias hh=hstr                    # hh to be alias for hstr
