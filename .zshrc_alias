@@ -1,0 +1,148 @@
+# configs
+alias zrel=". ~/.zshrc"
+alias vconf="vim ~/.vimrc"
+alias zconf="vim ~/.zshrc"
+alias aconf="vim ~/.zshrc_alias"
+alias lconf="vim ~/.zshrc_local"
+alias sconf="vim ~/.ssh/config"
+alias gconf="vim ~/.gitconfig"
+alias dotfiles="code ~/Projects/dotfiles ~/.zshrc_local ~/.ssh/config"
+
+# network
+alias sshed="sshed"
+alias dog="dog" # like a dig (dns client)
+alias gping="gping"
+alias speed="speedtest-cli"
+alias wifi-password="wifi-password"
+alias private_ip="ipconfig getifaddr en0"
+alias public_ip="curl checkip.amazonaws.com"
+alias proxy_ip="ALL_PROXY=socks5h://127.0.0.1:9090 curl checkip.amazonaws.com"
+alias ports="sudo lsof -i -P -n | grep LISTEN"
+alias sshrm="ssh-keygen -R"
+alias scan="sudo arp-scan --interface=en0 --localnet"
+alias q="http"
+alias www="python3 -m http.server 8888"
+alias ping="grc ping"
+alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+alias wanip='dig @resolver4.opendns.com myip.opendns.com +short' 
+alias wanip4='dig @resolver4.opendns.com myip.opendns.com +short -4'
+alias wanip6='dig @resolver1.ipv6-sandbox.opendns.com AAAA myip.opendns.com +short -6'
+
+# docker
+alias lzd="lazydocker"
+alias k="kubectl"
+alias h="helm"
+alias ctop="ctop"
+alias dive="dive"
+alias docker_start="open -a Docker"
+alias docker_stop="osascript -e 'quit app \"Docker\"'"
+alias colima_start="colima start --cpu 4 --memory 4 --disk 50 --arch aarch64"
+alias colima_stop="colima stop"
+alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
+alias dpsp='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}"'
+alias dockerstat="docker system df -v"
+
+# disk
+alias ncdu="ncdu"
+alias gdu="gdu"
+alias duf="duf"
+alias dlist="diskutil list"
+alias dunm="diskutil unmountDisk"
+
+# nice
+alias fonts="fc-list"
+alias neofetch="neofetch"
+alias fd="fd"
+alias rg="rg"
+alias gla="glances"
+alias bpytop="bpytop"
+alias cat="bat"
+alias matr="cmatrix"
+alias coins="cointop"
+alias lnav="lnav"
+alias youtubedownload="youtube-dl"
+alias mas="mas" # mac os app store
+alias trash="trash" # move to trash
+alias procs="procs"
+alias fx="fx"
+alias broot="broot"
+alias cheat="cheat" # like tldr
+alias search="ag" # https://github.com/ggreer/the_silver_searcher (ag text /path/to/folder)
+alias noti="noti" # notifies when process is done (dd for example)
+alias cp="cp -v"
+alias mv="mv -v"
+alias ln="ln -v"
+alias rm="rm -v"
+alias l1="exa --tree --git -la -L 1"
+alias l2="exa --tree --git -la -L 2"
+alias l3="exa --tree --git -la -L 3"
+alias shreder="shred -zv"
+alias weather="curl http://wttr.in/Minsk"
+alias upd="softwareupdate --all --install --force"
+alias delta="get-operation.sh --dark --line-numbers --side-by-side"
+alias myfzf="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+alias copyssh="pbcopy < ~/.ssh/id_rsa.pub"
+alias chromm='open -n -a Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security'
+alias progr="sudo watch progress -q"
+
+# shell
+alias hg="history | rg"
+alias ag="alias | rg"
+alias trec="asciinema rec" # Ctrl-D to stop or type 'exit'
+alias tplay="asciinema play"
+alias omz_update="omz update" # oh-my-zsh update version
+alias omz_reload="omz reload" # oh-my-zsh relaod session
+alias zrebuild="rm -f ~/.zcompdump; compinit"
+
+# dirs
+alias goproj="cd ~/Projects/"
+alias godesk="cd ~/Desktop/"
+alias godown="cd ~/Downloads/"
+alias gohome="cd ~"
+
+# packages
+alias brewdump="mv ~/Projects/dotfiles/Brewfile{,.back} && brew bundle dump --file ~/Projects/dotfiles/Brewfile"
+alias brewup="brew bundle --file ~/Projects/dotfiles/Brewfile"
+
+# passwords
+alias pwgen16="pwgen -s 16 1"
+alias pwgen32="pwgen -s 32 1"
+alias pwgen64="pwgen -s 64 1"
+alias pass16="openssl rand -base64 16"
+alias pass32="openssl rand -base64 32"
+alias pass64="openssl rand -base64 64"
+alias pass="pwgen 16 1 -B -c -n -y -s -r '%~:<>{}=^|-\?().,;\/_[]+\"\`\\'"
+
+# git
+alias bit="bit"
+alias tig="tig"
+alias gitk="gitk"
+alias hub="hub"
+alias gui="gitui"
+alias lazygit="lazygit"
+alias gistf="GITHUB_TOKEN=$GITHUB_TOKEN_GISTS hub gist create --copy" # creates gist from file and copy URL
+alias gist="GITHUB_TOKEN=$GITHUB_TOKEN_GISTS hub gist create" # creates gist from file
+alias gst="git status"
+alias gf="git fetch -p"
+alias gaa="git add ."
+alias gcim="git commit -m"
+alias gpush="git push origin"
+alias gpull="git pull origin"
+
+# work
+alias ts="ssh ts"
+alias hid="ssh homeid"
+# alias pi='ssh -i ~/Desktop/HomeID/homeid_rsa_rtunnel/id_rsa -l pi'
+alias pi='ssh -i ~/.ssh/old_id_rsa -l pi'
+alias tun='ssh -o ProxyCommand="ssh -p 22 -W %h:%p -q homeid" pi@127.0.0.1 -i ~/.ssh/old_id_rsa -p'
+
+# rtunnel
+alias tc='ssh -J homeid -i ~/.ssh/old_id_rsa pi@127.0.0.1 -p 5555'
+alias tu='~/Projects/homeid/rtunnel/build/rtunnel-client-darwin-amd64 -event up -port 5555 -vendor'
+alias td='~/Projects/homeid/rtunnel/build/rtunnel-client-darwin-amd64 -event down -vendor'
+
+# maildrop
+alias maildrop_new='export MAILDROP_MAILBOX=$(pwgen -s 16 1) && echo $MAILDROP_MAILBOX@maildrop.cc'
+alias maildrop_inbox='hurl ~/http/maildrop_inbox.hurl --variable mailbox=$MAILDROP_MAILBOX | jq'
+alias maildrop_select='read MAILDROP_MSGID'
+alias maildrop_message='hurl ~/http/maildrop_message.hurl --variable mailbox=$MAILDROP_MAILBOX --variable msgid=$MAILDROP_MSGID | jq'

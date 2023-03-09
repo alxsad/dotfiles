@@ -13,7 +13,8 @@ files=(
     .gitmodules
     .vimrc
     .zshrc
-    .zshrc.alias
+    .zshrc_alias
+    .zshrc_fn
 )
 
 echo "Creating symlinks..."

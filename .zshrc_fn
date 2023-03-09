@@ -1,0 +1,50 @@
+take() {
+    mkdir -p $1
+    cd $1
+}
+
+ntfy() {
+    echo "$2" | http ntfy.sh/$1
+}
+
+proxy_down() {
+    networksetup -setsocksfirewallproxystate Wi-Fi off
+    pgrep -f 9090 | xargs -r kill
+    echo "SOCKS proxy disabled."
+}
+
+proxy_up() {
+    # To show list of network card identifiers run: networksetup -listnetworkserviceorder
+    ssh -D 9090 -N -f ts
+    networksetup -setsocksfirewallproxy Wi-Fi 127.0.0.1 9090
+    networksetup -setsocksfirewallproxystate Wi-Fi on
+    networksetup -setproxybypassdomains Wi-Fi youtube.com,.local
+    echo "SOCKS proxy enabled."
+}
+
+proxy_status() {
+    ps aux | rg 9090 | rg ssh
+}
+
+fzf_alias() {
+    local selection
+    if selection=$(alias | fzf --query="$BUFFER" | sed -re 's/=.+$/ /'); then
+        BUFFER=$selection
+        eval $BUFFER
+    fi
+}
+
+fzf_git_checkout() {
+    git checkout $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)
+}
+
+mqtt_sub() {
+    local host=pubsub.homeid.gmar.by
+    mosquitto_sub -h $host -t /panel/$1 -u api -p 1884 -P $MQTT_TOKEN
+}
+
+mqtt_lock() {
+    local host=pubsub.homeid.gmar.by
+    local json=$(printf '{ "event": "open_lock", "pin": %d }' $2)
+    mosquitto_pub -d -h $host -p 1884 -t /panel/$1 -m "$json" -u api -P $MQTT_TOKEN -i test_pub
+}

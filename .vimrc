@@ -77,7 +77,8 @@ set modifiable
 set colorcolumn=120
 
 " Plugin settings
-set guifont=Fira_Code_Retina_Nerd_Font_Complete_Mono:h11¬
+"set guifont=Fira_Code_Retina_Nerd_Font_Complete_Mono:h11¬
+set guifont=JetBrainsMono-Regular:h11¬
 map <C-n> :NERDTreeToggle<CR>
 map <C-g> :GitGutterToggle<CR>
 let g:NERDTreeWinSize=60
