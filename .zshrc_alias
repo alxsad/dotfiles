@@ -146,3 +146,12 @@ alias maildrop_new='export MAILDROP_MAILBOX=$(pwgen -s 16 1) && echo $MAILDROP_M
 alias maildrop_inbox='hurl ~/http/maildrop_inbox.hurl --variable mailbox=$MAILDROP_MAILBOX | jq'
 alias maildrop_select='read MAILDROP_MSGID'
 alias maildrop_message='hurl ~/http/maildrop_message.hurl --variable mailbox=$MAILDROP_MAILBOX --variable msgid=$MAILDROP_MSGID | jq'
+
+# macos airport tool
+alias wfscan="airport -s"
+alias wfinfo="airport -I"
+
+# wg
+alias wgstat="sudo wg"
+alias wgup="sudo wg-quick up wg0"
+alias wgdown="sudo wg-quick down wg0"
