@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+read -p "enter service name: " service
+
+read -sp "enter totp key: " key
+echo
+
+read -sp "enter passphrase: " passphrase
+echo
+
+file="$HOME/totp/${service}.gpg"
+
+touch "$file"
+
+echo "$key" | gpg --batch --yes --passphrase $passphrase --symmetric -o $file
+
+exit 0
+

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+DIR=~/totp
+ID=$1
+
+if [ ! -f "${DIR}/${ID}.gpg" ] ; then
+  echo "No key for ${ID}"
+  exit 1
+fi
+
+KEY=$(gpg --decrypt --pinentry-mode loopback --quiet "${DIR}/${ID}.gpg")
+
+TOTP=$(echo "${KEY}" | oathtool -b --totp - )
+
+echo "${TOTP}"
+
+KEY=""
+
+exit 0
+

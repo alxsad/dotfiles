@@ -4,31 +4,47 @@
 [color]
     ui = true
 [alias]
-    lg  = log --graph --color --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --
-    co  = checkout
+    lg = log --graph --color --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --
+    co = checkout
     cob = checkout -b
-    ci  = commit
+    ci = commit
     cim = commit -m
-    p   = push
-    pp  = push origin
-    f   = fetch -p
-    bd  = branch -d
-    bD  = branch -D
-    st  = status
+    cia = commit --amend -m
+    p = push
+    pp = push origin
+    u = pull
+    uu = pull origin
+    f = fetch -p
+    br = branch
+    bd = branch -d
+    bD = branch -D
+    st = status
     sts = status -sb
-    br  = branch
-    aa  = add .
-    a   = add
-    df  = diff --cached
-    sl  = stash list
-    sp  = stash pop
-    sc  = stash clear
-    ss  = stash
-    v   = describe --tags
+    aa = add .
+    a = add
+    df = diff --cached
+    sl = stash list
+    sp = stash pop
+    sc = stash clear
+    ss = stash
+    v = describe --tags
+    lst = log -1 HEAD --stat
+    cl = config --list
+    aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
 [push]
     default = current
+[merge]
+    conflictstyle = diff3
+[branch]
+    sort = -committerdate
+[rebase]
+	stat = true
 [http]
     sslVerify = true
 [core]
     editor = vim
+[init]
+    defaultBranch = master
 
+[includeIf "gitdir:~/Projects/finteqhub/"]
+    path = ~/.gitconfig-finteqhub

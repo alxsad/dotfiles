@@ -2,7 +2,7 @@ ZSH_DISABLE_COMPFIX=true
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 DISABLE_AUTO_UPDATE="true"
-plugins=(git iterm2 composer node npm yarn brew docker encode64 urltools history sudo zsh-autosuggestions zsh-syntax-highlighting catimg colored-man-pages golang jsontools nmap postgres httpie genpass)
+plugins=(brew docker encode64 urltools sudo zsh-autosuggestions zsh-syntax-highlighting catimg colored-man-pages jsontools nmap httpie genpass aliases alias-finder)
 source $ZSH/oh-my-zsh.sh
 export EDITOR="vim"
 export GIT_EDITOR="vim"
@@ -31,6 +31,8 @@ export JAVA_BIN="$JAVA_HOME/bin"
 export GOPATH=$(go env GOPATH)
 export PATH=$GOPATH/bin:$PATH
 export PATH="$JAVA_BIN:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.bin:$PATH"
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH

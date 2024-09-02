@@ -25,6 +25,10 @@ do
     ln -sf $DIR/$file $HOME/$file
 done
 
+mkdir $HOME/.bin || true
+ln -sf $DIR/.bin/totp $HOME/.bin/totp
+ln -sf $DIR/.bin/newtotp $HOME/.bin/newtotp
+
 ln -sf $DIR/starship.toml $HOME/.config/starship.toml
 
 echo "Done!"

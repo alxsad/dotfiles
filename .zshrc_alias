@@ -27,8 +27,11 @@ alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias wanip='dig @resolver4.opendns.com myip.opendns.com +short' 
 alias wanip4='dig @resolver4.opendns.com myip.opendns.com +short -4'
 alias wanip6='dig @resolver1.ipv6-sandbox.opendns.com AAAA myip.opendns.com +short -6'
+alias s="ssh"
+alias wfinfo="sudo wdutil info"
 
 # docker
+alias d="docker"
 alias lzd="lazydocker"
 alias k="kubectl"
 alias h="helm"
@@ -36,11 +39,15 @@ alias ctop="ctop"
 alias dive="dive"
 alias docker_start="open -a Docker"
 alias docker_stop="osascript -e 'quit app \"Docker\"'"
-alias colima_start="colima start --cpu 4 --memory 4 --disk 50 --arch aarch64"
-alias colima_stop="colima stop"
 alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"'
 alias dpsp='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Ports}}"'
-alias dockerstat="docker system df -v"
+alias dstat="docker system df -v"
+alias pods="watch -n 1 kubectl get pods --all-namespaces"
+
+# colima
+alias c="colima"
+alias colima_hid="colima start --profile homeid --cpu 8 --memory 10 --disk 100 --vm-type=vz --vz-rosetta --runtime docker --mount-type=virtiofs"
+alias colima_ss="colima start --profile finteqhub --cpu 8 --memory 10 --disk 100 --vm-type=vz --vz-rosetta --runtime docker --mount-type=virtiofs"
 
 # disk
 alias ncdu="ncdu"
@@ -73,9 +80,9 @@ alias cp="cp -v"
 alias mv="mv -v"
 alias ln="ln -v"
 alias rm="rm -v"
-alias l1="exa --tree --git -la -L 1"
-alias l2="exa --tree --git -la -L 2"
-alias l3="exa --tree --git -la -L 3"
+alias l1="eza --tree --git -la -L 1"
+alias l2="eza --tree --git -la -L 2"
+alias l3="eza --tree --git -la -L 3"
 alias shreder="shred -zv"
 alias weather="curl http://wttr.in/Minsk"
 alias upd="softwareupdate --all --install --force"
@@ -84,6 +91,7 @@ alias myfzf="fzf --preview 'bat --style=numbers --color=always --line-range :500
 alias copyssh="pbcopy < ~/.ssh/id_rsa.pub"
 alias chromm='open -n -a Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security'
 alias progr="sudo watch progress -q"
+alias m="make"
 
 # shell
 alias hg="history | rg"
@@ -114,6 +122,7 @@ alias pass64="openssl rand -base64 64"
 alias pass="pwgen 16 1 -B -c -n -y -s -r '%~:<>{}=^|-\?().,;\/_[]+\"\`\\'"
 
 # git
+alias g="git"
 alias bit="bit"
 alias tig="tig"
 alias gitk="gitk"
@@ -122,24 +131,18 @@ alias gui="gitui"
 alias lazygit="lazygit"
 alias gistf="GITHUB_TOKEN=$GITHUB_TOKEN_GISTS hub gist create --copy" # creates gist from file and copy URL
 alias gist="GITHUB_TOKEN=$GITHUB_TOKEN_GISTS hub gist create" # creates gist from file
-alias gst="git status"
-alias gf="git fetch -p"
-alias gaa="git add ."
-alias gcim="git commit -m"
-alias gpush="git push origin"
-alias gpull="git pull origin"
+alias pull="git pull origin"
+alias push="git push origin"
+alias fetch="git fetch -p"
+alias add="git add ."
 
 # work
 alias ts="ssh ts"
 alias hid="ssh homeid"
-# alias pi='ssh -i ~/Desktop/HomeID/homeid_rsa_rtunnel/id_rsa -l pi'
+alias pgw="ssh pgw"
+alias vpn="ssh vpn"
 alias pi='ssh -i ~/.ssh/old_id_rsa -l pi'
-alias tun='ssh -o ProxyCommand="ssh -p 22 -W %h:%p -q homeid" pi@127.0.0.1 -i ~/.ssh/old_id_rsa -p'
-
-# rtunnel
-alias tc='ssh -J homeid -i ~/.ssh/old_id_rsa pi@127.0.0.1 -p 5555'
-alias tu='~/Projects/homeid/rtunnel/build/rtunnel-client-darwin-amd64 -event up -port 5555 -vendor'
-alias td='~/Projects/homeid/rtunnel/build/rtunnel-client-darwin-amd64 -event down -vendor'
+alias tun='ssh -o ProxyCommand="ssh -p 22 -W %h:%p -q homeid" pi@127.0.0.1 -i ~/.ssh/old_id_rsa -o StrictHostKeyChecking=no -p'
 
 # maildrop
 alias maildrop_new='export MAILDROP_MAILBOX=$(pwgen -s 16 1) && echo $MAILDROP_MAILBOX@maildrop.cc'
@@ -147,11 +150,9 @@ alias maildrop_inbox='hurl ~/http/maildrop_inbox.hurl --variable mailbox=$MAILDR
 alias maildrop_select='read MAILDROP_MSGID'
 alias maildrop_message='hurl ~/http/maildrop_message.hurl --variable mailbox=$MAILDROP_MAILBOX --variable msgid=$MAILDROP_MSGID | jq'
 
-# macos airport tool
-alias wfscan="airport -s"
-alias wfinfo="airport -I"
-
 # wg
-alias wgstat="sudo wg"
-alias wgup="sudo wg-quick up wg0"
-alias wgdown="sudo wg-quick down wg0"
+alias wgconf="sudo vim /opt/homebrew/etc/wireguard/wg0.conf"
+alias wgres="sudo wg-quick down wg0 && sudo wg-quick up wg0"
+alias wu="sudo wg-quick up wg0"
+alias wd="sudo wg-quick down wg0"
+alias ws="sudo wg"
