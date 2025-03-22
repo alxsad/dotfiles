@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+DIR=~/totp
+ID=$1
+
+if [ ! -f "${DIR}/${ID}.key" ] ; then
+  echo "No key for ${ID}"
+  exit 1
+fi
+
+KEY=$(cat "${DIR}/${ID}.key")
+
+TOTP=$(echo "${KEY}" | oathtool -b --totp - )
+
+echo "${TOTP}"
+
+KEY=""
+
+exit 0
+
