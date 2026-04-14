@@ -24,7 +24,7 @@ alias q="http"
 alias www="python3 -m http.server 8888"
 alias ping="grc ping"
 alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias wanip='dig @resolver4.opendns.com myip.opendns.com +short' 
+alias wanip='dig @resolver4.opendns.com myip.opendns.com +short'
 alias wanip4='dig @resolver4.opendns.com myip.opendns.com +short -4'
 alias wanip6='dig @resolver1.ipv6-sandbox.opendns.com AAAA myip.opendns.com +short -6'
 alias s="ssh"
@@ -47,7 +47,8 @@ alias pods="watch -n 1 kubectl get pods --all-namespaces"
 # colima
 alias c="colima"
 alias colima_hid="colima start --profile homeid --cpu 8 --memory 10 --disk 100 --vm-type=vz --vz-rosetta --runtime docker --mount-type=virtiofs"
-alias colima_ss="colima start --profile finteqhub --cpu 8 --memory 10 --disk 100 --vm-type=vz --vz-rosetta --runtime docker --mount-type=virtiofs"
+alias colima_ss="colima start --profile finteqhub --cpu 8 --memory 10 --disk 100 --vm-type=vz --vz-rosetta --runtime docker --mount-type=virtiofs --network-address"
+alias colima_res="colima stop -f finteqhub && colima start --profile finteqhub --cpu 8 --memory 10 --disk 100 --vm-type=vz --vz-rosetta --runtime docker --mount-type=virtiofs --network-address"
 
 # disk
 alias ncdu="ncdu"
@@ -156,3 +157,10 @@ alias wgres="sudo wg-quick down wg0 && sudo wg-quick up wg0"
 alias wu="sudo wg-quick up wg0"
 alias wd="sudo wg-quick down wg0"
 alias ws="sudo wg"
+
+# finteqhub
+alias fth='cd ~/Projects/finteqhub/tools/fth && go run ./cmd/fth/'
+
+# ai
+alias qqq='CLAUDE_CONFIG_DIR=~/.claude-personal claude -p --model claude-sonnet-4-6 --output-format text'
+alias ccc='CLAUDE_CONFIG_DIR=~/.claude-personal claude'

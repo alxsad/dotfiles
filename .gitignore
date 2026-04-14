@@ -1,3 +1,4 @@
 .zshrc.local
 .idea
 Brewfile.lock.json
+.DS_Store

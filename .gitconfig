@@ -10,11 +10,14 @@
     ci = commit
     cim = commit -m
     cia = commit --amend -m
-    p = push
-    pp = push origin
+    p = push origin
+    pp = push origin HEAD
+    ppf = push origin HEAD --force
     u = pull
     uu = pull origin
     f = fetch -p
+    rc = rebase --continue
+    ra = rebase --abort
     br = branch
     bd = branch -d
     bD = branch -D
@@ -32,9 +35,11 @@
     cl = config --list
     aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
 [push]
-    default = current
+    default = simple
+    autoSetupRemote = true
+    followTags = true
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 [branch]
     sort = -committerdate
 [rebase]
@@ -45,6 +50,19 @@
     editor = vim
 [init]
     defaultBranch = master
+[tag]
+    sort = version:refname
+[diff]
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+[column]
+    ui = auto
 
 [includeIf "gitdir:~/Projects/finteqhub/"]
     path = ~/.gitconfig-finteqhub
