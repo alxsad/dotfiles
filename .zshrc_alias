@@ -111,7 +111,9 @@ alias gohome="cd ~"
 
 # packages
 alias brewdump="mv ~/Projects/dotfiles/Brewfile{,.back} && brew bundle dump --file ~/Projects/dotfiles/Brewfile --describe --no-vscode"
-alias brewup="brew bundle --file ~/Projects/dotfiles/Brewfile"
+alias brewup="brew bundle install --file ~/Projects/dotfiles/Brewfile"
+alias brewcheck="brew bundle check --file ~/Projects/dotfiles/Brewfile --verbose" # is all installed from Brewfile
+alias brewclean="brew bundle cleanup --file ~/Projects/dotfiles/Brewfile" # what installed out of Brewfile
 
 # passwords
 alias pwgen16="pwgen -s 16 1"
