@@ -110,7 +110,7 @@ alias godown="cd ~/Downloads/"
 alias gohome="cd ~"
 
 # packages
-alias brewdump="mv ~/Projects/dotfiles/Brewfile{,.back} && brew bundle dump --file ~/Projects/dotfiles/Brewfile"
+alias brewdump="mv ~/Projects/dotfiles/Brewfile{,.back} && brew bundle dump --file ~/Projects/dotfiles/Brewfile --describe --no-vscode"
 alias brewup="brew bundle --file ~/Projects/dotfiles/Brewfile"
 
 # passwords

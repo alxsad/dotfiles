@@ -1,4 +1,5 @@
 .zshrc.local
 .idea
+Brewfile.back
 Brewfile.lock.json
 .DS_Store
