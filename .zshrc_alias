@@ -161,7 +161,7 @@ alias wd="sudo wg-quick down wg0"
 alias ws="sudo wg"
 
 # finteqhub
-alias fth='cd ~/Projects/finteqhub/tools/fth && go run ./cmd/fth/'
+alias fth='cd ~/Projects/finteqhub/fth && go run ./cmd/fth/'
 
 # ai
 alias qqq='CLAUDE_CONFIG_DIR=~/.claude-personal claude -p --model claude-sonnet-4-6 --output-format text'
